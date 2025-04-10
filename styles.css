@@ -587,15 +587,6 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.about-image:before {
-    content: "👨‍💻";
-    position: absolute;
-    font-size: 3rem;
-    opacity: 0.1;
-    right: 2rem;
-    bottom: 1rem;
-}
-
 /* Skills Section */
 .skills-grid {
     display: grid;
