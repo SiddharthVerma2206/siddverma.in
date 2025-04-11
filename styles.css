@@ -23,6 +23,7 @@
         --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
         --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
         --header-gradient: linear-gradient(90deg, #242424 10%, #5653e8 100%);
+        --about-title-gradient: linear-gradient(90deg, #060606 50%, #5653e8 25%);
     }
 }
 
@@ -56,7 +57,9 @@ body.light-theme {
     --gradient-2: linear-gradient(45deg, rgba(86,83,232,0.1) 0%, rgba(86,83,232,0.05) 100%);
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+    --hero-gradient: linear-gradient(90deg, #242424 10%, #5653e8 60%);
     --header-gradient: linear-gradient(90deg, #242424 10%, #5653e8 100%);
+    --about-title-gradient: linear-gradient(90deg, #242424 10%, #5653e8 28%);
 }
 
 body.dark-theme {
@@ -69,7 +72,10 @@ body.dark-theme {
     --gradient-2: linear-gradient(45deg, rgba(130,134,255,0.1) 0%, rgba(130,134,255,0.05) 100%);
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.15);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.2);
+    --hero-gradient: linear-gradient(90deg, #fff 10%, #5653e8 60%);
     --header-gradient: linear-gradient(90deg, #fff 10%, #8286ff 100%);
+    --about-title-gradient: linear-gradient(90deg, #fff 10%, #8286ff 28%);
+    
 }
 
 /* Skills Cross Layout */
@@ -359,7 +365,7 @@ nav {
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1.1;
-    background: var(--header-gradient);
+    background: var(--hero-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -370,6 +376,7 @@ nav {
     max-width: 700px;
 }
 
+/* Pill style badges CSS */
 .badge-container {
     display: flex;
     flex-wrap: wrap;
@@ -380,15 +387,14 @@ nav {
 .badge {
     display: inline-flex;
     align-items: center;
-    padding: 0.6rem 1.2rem;
-    background: var(--gradient-1);
+    padding: 0.7rem 1.4rem;
     border-radius: 2rem;
     font-size: 0.95rem;
     font-weight: 500;
-    color: var(--text-color);
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
 }
 
 .badge:hover {
@@ -396,15 +402,47 @@ nav {
     box-shadow: var(--shadow-md);
 }
 
+.badge:after {
+    display: none;
+}
+
 .badge-icon {
     margin-right: 0.5rem;
 }
-.about .section-title {
-    background: var(--header-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
+
+/* Primary pill style */
+.pill-primary {
+    background: var(--gradient-1);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.pill-primary:hover {
+    color: var(--text-color);
+}
+
+/* Accent pill style */
+.pill-accent {
+    background: linear-gradient(90deg, #242424 25%, #5653e8 120%);
+    color: white;
+    border: none;
+}
+
+.pill-accent:hover {
+    color: white;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .badge-container {
+        gap: 0.8rem;
+    }
+    
+    .badge {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
 
 /* Projects Section */
 .section-title {
@@ -556,6 +594,30 @@ nav {
     color: var(--secondary-color);
     position: relative;
     padding-left: 1.5rem;
+}
+
+.about .about-title{
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 6rem 0 2.5rem;
+    letter-spacing: -0.03em;
+    position: relative;
+    display: inline-block;
+    background:var(--about-title-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about .about-title:after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 0 !important;
+    width: 40px !important;
+    height: 3px !important;
+    background-color: var(--accent-color) !important;
+    border-radius: 3px !important;
+    display: block !important;
 }
 
 .about-text p:before {
@@ -1013,3 +1075,481 @@ footer:before {
       padding: 0.6rem;
     }
   }
+
+  :root {
+    --color-calendar-graph-day-bg: #dddbdb;
+    --color-calendar-graph-day-L1-bg: #39dd34;
+    --color-calendar-graph-day-L2-bg: #45a045;
+    --color-calendar-graph-day-L3-bg: #047526;
+    --color-calendar-graph-day-L4-bg: #0a4208;
+  }
+  
+  .ContributionCalendar-day[data-level='0'] {
+      background-color: var(--color-calendar-graph-day-bg);
+  }
+  
+  .ContributionCalendar-day[data-level='1'] {
+      background-color: var(--color-calendar-graph-day-L1-bg);
+  }
+  
+  .ContributionCalendar-day[data-level='2'] {
+      background-color: var(--color-calendar-graph-day-L2-bg);
+  }
+  
+  .ContributionCalendar-day[data-level='3'] {
+      background-color: var(--color-calendar-graph-day-L3-bg);
+  }
+  
+  .ContributionCalendar-day[data-level='4'] {
+      background-color: var(--color-calendar-graph-day-L4-bg);
+  }
+  
+  table.ContributionCalendar-grid {
+      margin-bottom: 0pt;
+  }
+  
+  table.ContributionCalendar-grid td {
+      padding: 4pt;
+  }
+  
+  table.ContributionCalendar-grid td span.sr-only {
+      display: none;
+  }
+  
+  td.ContributionCalendar-label span[aria-hidden='true'] {
+      font-size: 8pt;
+      left: -1pt;
+  }
+  
+  tool-tip {
+      display: none;
+  }
+  
+  .calendar .width-full > .float-left {
+      display: none;
+  }
+  
+  .calendar {
+    font-family: 'Inter', sans-serif; 
+    border: none;                     
+    border-radius: 8px;               
+    background-color: var(--bg-color); 
+    color: var(--text-color);        
+    padding: 1rem;                   
+    text-align: center;
+    margin: 0 auto;
+}
+
+  div.px-md-5 {
+      height: 2rem;
+  }
+  
+  div.float-right {
+      text-align: right;
+      padding: 0 14px 10px 0;
+      display: inline-block;
+      float: right;
+  }
+  
+  div.float-right div {
+      display: inline-block;
+      list-style: none;
+      margin: 0 5px;
+      position: relative;
+      bottom: -1px;
+      padding: 0;
+  }
+  
+  div.float-right span.sr-only {
+      display: none;
+  }
+  
+  .contrib-legend .legend li {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+  }
+  
+  .text-small {
+      font-size: 12px;
+      color: #767676;
+  }
+  
+  .calendar-graph {
+      padding: 5px 0 0;
+      text-align: center;
+  }
+  
+  .contrib-column {
+      padding: 15px 0;
+      text-align: center;
+      border-left: 1px solid #ddd;
+      border-top: 1px solid #ddd;
+      font-size: 11px;
+  }
+  
+  .contrib-column-first {
+      border-left: 0;
+  }
+  
+  .table-column {
+      box-sizing: border-box;
+      display: table-cell;
+      width: 1%;
+      padding-right: 10px;
+      padding-left: 10px;
+      vertical-align: top;
+  }
+  
+  .contrib-number {
+      font-weight: 300;
+      line-height: 1.3em;
+      font-size: 24px;
+      display: block;
+      color: #333;
+  }
+  
+  .calendar img.spinner {
+      width: 70px;
+      margin-top: 50px;
+      min-height: 70px;
+  }
+  
+  .monospace {
+      text-align: center;
+      color: #000;
+      font-family: monospace;
+  }
+  
+  .monospace a {
+      color: #1D75AB;
+      text-decoration: none;
+  }
+  
+  .contrib-footer {
+      font-size: 11px;
+      padding: 0 10px 12px;
+      text-align: left;
+      width: 100%;
+      box-sizing: border-box;
+      height: 26px;
+  }
+  
+  .left.text-muted {
+      float: left;
+      margin-left: 9px;
+      color: #767676;
+  }
+  .left.text-muted a {
+      color: #4078c0;
+      text-decoration: none;
+  }
+  .left.text-muted a:hover,
+  .monospace a:hover {
+      text-decoration: underline;
+  }
+  
+  h2.f4.text-normal.mb-3 {
+      display: none;
+  }
+  
+  .float-left.text-gray {
+      float: left;
+  }
+  #user-activity-overview{
+      display:none;
+  }
+  
+  .day-tooltip {
+      white-space: nowrap;
+      position: absolute;
+      z-index: 99999;
+      padding: 10px;
+      font-size: 12px;
+      color: #959da5;
+      text-align: center;
+      background: rgba(0,0,0,.85);
+      border-radius: 3px;
+      display: none;
+      pointer-events: none;
+  }
+  .day-tooltip strong {
+      color: #dfe2e5;
+  }
+  .day-tooltip.is-visible {
+      display: block;
+  }
+  .day-tooltip:after {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      box-sizing: border-box;
+      margin: 0 0 0 -5px;
+      content: " ";
+      border: 5px solid transparent;
+      border-top-color: rgba(0,0,0,.85)
+  }
+  
+  text.ContributionCalendar-label {
+      fill: #ccc;
+      font-size: 11px;
+  }
+  
+  @media screen and (max-width: 768px) {
+      .table-column {
+          display: block;
+          width: 100%;
+      }
+  }
+  /* Mobile Responsive Fixes */
+
+/* Base mobile adjustments */
+@media (max-width: 768px) {
+  /* Increase body padding for better spacing */
+  body {
+    padding: 0 6%;
+  }
+  
+  /* Header adjustments */
+  nav {
+    padding: 1.2rem 0;
+  }
+  
+  .signature {
+    height: 30px;
+  }
+  
+  /* Make Resume and WhatsApp buttons display side by side */
+  .header-buttons, .cta-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  
+  /* Style individual buttons */
+  .btn-resume, .btn-whatsapp, .resume-button, .whatsapp-button {
+    flex: 1;
+    min-width: 0; /* Allows buttons to shrink below content size */
+    white-space: nowrap;
+  }
+  
+  /* Improve hero section */
+  .hero {
+    padding: 2rem 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.3rem;
+    min-height: auto;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  /* Badge container improvements */
+  .badge-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+  
+  .badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  /* About section improvements */
+  .about {
+    margin: 4rem 0 3rem;
+  }
+  
+  .about-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding-left: 1.2rem;
+  }
+  
+  .about-image {
+    max-width: 100%;
+    aspect-ratio: 1.2/1;
+    margin: 0 auto;
+  }
+  
+  /* Project grid improvements */
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .project-card {
+    max-width: 100%;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+  
+  .project-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .project-info p {
+    font-size: 0.9rem;
+  }
+  
+  /* Tech stack improvements */
+  .tech-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  /* GitHub activity calendar fixes */
+  .calendar {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.5rem;
+  }
+  
+  table.ContributionCalendar-grid td {
+    padding: 2pt;
+  }
+  
+  /* Contact section improvements */
+  .contact {
+    margin: 4rem auto;
+  }
+  
+  .contact h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact p {
+    font-size: 0.95rem;
+  }
+  
+  .social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  
+  .social-link {
+    padding: 0.7rem;
+  }
+  
+  /* Footer adjustments */
+  footer {
+    margin: 3rem 0 1.5rem;
+    padding-top: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+/* Extra small device improvements */
+@media (max-width: 480px) {
+  body {
+    padding: 0 5%;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+    margin: 4rem 0 1.8rem;
+  }
+  
+  .about .about-title {
+    font-size: 1.6rem;
+    margin: 4rem 0 1.8rem;
+  }
+  
+  /* Fix project cards */
+  .project-image {
+    height: 160px;
+  }
+  
+  .project-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  /* Improve GitHub calendar for very small screens */
+  .calendar {
+    transform: scale(0.85);
+    transform-origin: left top;
+  }
+  
+  /* Make badges display better */
+  .badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Fix contact section for very small screens */
+  .contact-button {
+    width: 100%;
+    padding: 0.6rem 1rem;
+  }
+  
+  /* Make tech stack and skills more readable */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .skill-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+  
+  .skill-name {
+    font-size: 0.85rem;
+  }
+  
+  /* Fix the skills cross layout */
+  .skills-cross-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .category-title {
+    font-size: 1.1rem;
+  }
+  
+  .skills-list {
+    gap: 0.8rem;
+  }
+  
+  .skill-item {
+    font-size: 0.9rem;
+  }
+}
