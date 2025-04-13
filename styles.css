@@ -1553,3 +1553,152 @@ footer:before {
     font-size: 0.9rem;
   }
 }
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+  
+  .hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Mobile Navigation */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .mobile-nav.active {
+    transform: translateY(0);
+  }
+  
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .mobile-nav-links a {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  
+  .close-menu {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .close-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--text-color);
+    transform-origin: center;
+  }
+  
+  .close-menu span:first-child {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .close-menu span:last-child {
+    transform: translateY(5px) rotate(-45deg);
+  }
+  
+  /* Mobile Responsive Media Queries */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+    
+    .hamburger-menu {
+      display: flex;
+    }
+  }
+
+  /* Fix for extra space in mobile view */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Ensure all elements stay within viewport */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Specifically handle images and media */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Ensure the calendar doesn't overflow */
+  .calendar {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Fix for GitHub calendar overflow */
+  #github-activity {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Fix for mobile navigation */
+  .mobile-nav {
+    width: 100vw; /* Use viewport width instead of percentage */
+    left: 0;
+    right: 0;
+  }
+  
+  /* Adjust container padding on mobile */
+  @media (max-width: 768px) {
+    body {
+      padding: 0 4%;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    
+    main {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    
+    section, .contact:before, footer:before {
+      width: 100%;
+      max-width: 100%;
+      left: 0;
+      right: 0;
+    }
+  }
