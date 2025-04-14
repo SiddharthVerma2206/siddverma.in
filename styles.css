@@ -711,9 +711,17 @@ nav {
     letter-spacing: -0.01em;
 }
 
+.calendar iframe {
+  max-width: 700px;
+  aspect-ratio: 3 / 1;
+  display: block;
+  margin: 20px auto 0;
+  border: none;
+}
+
 /* Updated Contact Section */
 .contact {
-    margin: 7rem auto;
+    margin: 1rem auto;
     position: relative;
     padding: 0;
     background: none;
