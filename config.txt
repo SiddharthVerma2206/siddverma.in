@@ -1,0 +1,1 @@
+ssh -i C:\Users\tarun\Downloads\sidverma_key.pem ubuntu@20.197.50.252
